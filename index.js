@@ -15,7 +15,7 @@ dotenv.config();
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.PORT;
+const PORT = process.env.PORT;
 const Mongo_URL = process.env.Mongo_URL;
 
 async function createConnection(){
@@ -39,7 +39,7 @@ app.use("/tags",tagsRouter);
 
 
 
-app.listen(port,()=>console.log(`App has Started in ${port}`));
+app.listen(PORT,()=>console.log(`App has Started in ${PORT}`));
 
 
 
