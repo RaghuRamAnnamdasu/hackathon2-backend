@@ -11,8 +11,9 @@ import nodemailer from "nodemailer";
 
 const app = express();
 
-dotenv.config();
+
 app.use(cors());
+dotenv.config();
 app.use(express.json());
 
 const PORT = process.env.PORT;
