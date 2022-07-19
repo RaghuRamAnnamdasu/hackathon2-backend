@@ -13,7 +13,7 @@ export const auth = (req,res,next)=>{
 };
 
 
-export const auth1 = (req, res, next)=>{
+export const auth2 = (req, res, next)=>{
     res.header(
       "Access-Control-Allow-Headers",
       "x-access-token, Origin, Content-Type, Accept"

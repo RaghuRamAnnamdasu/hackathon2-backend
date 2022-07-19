@@ -3,6 +3,7 @@ import {createUSer, getUserByName} from "./helper.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
+import { auth1, auth2 } from "../middleware/auth.js";
 
 const router = express.Router();
 
@@ -32,7 +33,11 @@ router.post('/signup', async function (req, res) {
   })
 
 
-  router.post('/login', async function (req, res) {
+  router.post('/login',auth2,async function (req, res) {
+
+    
+
+
     const {email,password} = req.body[0];
     const userFromDB = await getUserByName(email);
     const storedPassword = userFromDB.password;
