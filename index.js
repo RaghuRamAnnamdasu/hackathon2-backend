@@ -15,7 +15,7 @@ dotenv.config();
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT;
 const Mongo_URL = process.env.Mongo_URL;
 
 async function createConnection(){
