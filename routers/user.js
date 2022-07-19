@@ -3,7 +3,6 @@ import {createUSer, getUserByName} from "./helper.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
-import {  auth2 } from "../middleware/auth.js";
 
 const router = express.Router();
 
@@ -13,6 +12,14 @@ async function genHashedPassword(password){
     const hashedPassword = await bcrypt.hash(password,salt);
     return hashedPassword;
   }
+
+router.use(function(req, res, next) {
+  res.header(
+    "Access-Control-Allow-Headers",
+    "x-access-token, Origin, Content-Type, Accept"
+  );
+  next();
+});
 
 router.post('/signup', async function (req, res) {
     const {email,password,displayName} = req.body[0];
@@ -33,7 +40,7 @@ router.post('/signup', async function (req, res) {
   })
 
 
-  router.post('/login',auth2,async function (req, res) {
+  router.post('/login',async function (req, res) {
 
     
 
