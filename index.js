@@ -12,7 +12,11 @@ import nodemailer from "nodemailer";
 const app = express();
 
 
-app.use(cors());
+app.use(cors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin
+    .AllowCredentials()));
 dotenv.config();
 app.use(express.json());
 
@@ -37,6 +41,7 @@ app.use("/user",userRouter);
 app.use("/questions",questionsRouter);
 app.use("/members",membersRouter);
 app.use("/tags",tagsRouter);
+
 
 
 
