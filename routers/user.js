@@ -3,7 +3,7 @@ import {createUSer, getUserByName} from "./helper.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
-import { auth1, auth2 } from "../middleware/auth.js";
+import {  auth2 } from "../middleware/auth.js";
 
 const router = express.Router();
 
