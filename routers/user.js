@@ -13,14 +13,6 @@ async function genHashedPassword(password){
     return hashedPassword;
   }
 
-router.use(function(req, res, next) {
-  res.header(
-    "Access-Control-Allow-Headers",
-    "x-access-token, Origin, Content-Type, Accept"
-  );
-  next();
-});
-
 router.post('/signup', async function (req, res) {
     const {email,password,displayName} = req.body[0];
     console.log(req.body);
